@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://candq4451r0a3"]
+[gd_scene load_steps=10 format=3 uid="uid://candq4451r0a3"]
 
 [ext_resource type="Script" uid="uid://t33xsifsr34o" path="res://scripts/playerMov.gd" id="1_nnsk1"]
 [ext_resource type="FontFile" uid="uid://crk7605fh1y" path="res://fonts/Minecraft.otf" id="2_rwgxs"]
 [ext_resource type="Script" uid="uid://bonoj68i2q46g" path="res://scripts/World.gd" id="2_world"]
 [ext_resource type="Texture2D" uid="uid://dud6h8yt4u76" path="res://textures/default/gui/gui.png" id="3_4wyf3"]
+[ext_resource type="Script" uid="uid://ch5a6nwe4h3jt" path="res://scripts/Hotbar.gd" id="5_71j4m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nnsk1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,6 +30,7 @@ environment = SubResource("Environment_4wyf3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
 light_energy = 0.5
 shadow_enabled = true
 
@@ -64,14 +66,16 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
 
-[node name="Gui" type="Sprite2D" parent="Control"]
+[node name="Hotbar" type="Sprite2D" parent="Control"]
 texture_filter = 1
 texture = ExtResource("3_4wyf3")
 region_enabled = true
 region_rect = Rect2(0, 0, 182, 22)
+script = ExtResource("5_71j4m")
 
-[node name="Gui2" type="Sprite2D" parent="Control"]
+[node name="Selected" type="Sprite2D" parent="Control"]
 texture_filter = 1
+position = Vector2(-80, 0)
 texture = ExtResource("3_4wyf3")
 region_enabled = true
 region_rect = Rect2(0, 22, 24, 24)

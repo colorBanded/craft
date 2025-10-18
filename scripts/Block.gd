@@ -34,6 +34,16 @@ static var BLOCK_TEXTURES = {
 	BlockType.WATER: Vector2i(15, 12),  
 }
 
+static var BLOCK_OVERLAYS = {
+	BlockType.GRASS: {
+		"side": Vector2i(6, 2)
+	}
+}
+
+static var BLOCK_LIGHT_LEVELS = {
+
+}
+
 const ATLAS_SIZE = Vector2i(16, 16)
 
 static func is_transparent(block_type: int) -> bool:
@@ -41,3 +51,13 @@ static func is_transparent(block_type: int) -> bool:
 
 static func is_solid(block_type: int) -> bool:
 	return block_type != BlockType.AIR and block_type != BlockType.WATER
+
+static func get_overlay(block_type: int, face: String) -> Vector2i:
+	if block_type in BLOCK_OVERLAYS:
+		var overlay_data = BLOCK_OVERLAYS[block_type]
+		if overlay_data is Dictionary:
+			return overlay_data.get(face, Vector2i(-1, -1))
+	return Vector2i(-1, -1)
+
+static func get_light_emission(block_type: int) -> int:
+	return BLOCK_LIGHT_LEVELS.get(block_type, 0)
