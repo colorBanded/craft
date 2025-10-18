@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	if show_debug:
 		update_debug_info(delta)
 
-func update_debug_info(delta: float) -> void:
+func update_debug_info(_delta: float) -> void:
 	var fps = Engine.get_frames_per_second()
 	var pos = position
 	var rot = rotation_degrees
